@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "935610727675",
+    "firebase_url": "https://hamurr-ec85b.firebaseio.com",
+    "project_id": "hamurr-ec85b",
+    "storage_bucket": "hamurr-ec85b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935610727675:android:8b6937d1a529a45abd045e",
+        "android_client_info": {
+          "package_name": "com.hamurr.alidemircan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935610727675-op63fh2olno6mrjid983mlapa6bnbbed.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoFfIjjUGMslkKSXp2WbYMmw2MSO06v-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "935610727675-op63fh2olno6mrjid983mlapa6bnbbed.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
