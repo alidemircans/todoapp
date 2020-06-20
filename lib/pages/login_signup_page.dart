@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_demo/services/authentication.dart';
+
 
 class LoginSignupPage extends StatefulWidget {
   LoginSignupPage({this.auth, this.loginCallback});
@@ -17,6 +19,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
 
   String _email;
   String _password;
+  String _name;
   String _errorMessage;
 
   bool _isLoginForm;
@@ -44,6 +47,15 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
 
         } else {
           userId = await widget.auth.signUp(_email, _password);
+          DocumentReference documnentReference =
+              Firestore.instance.collection("users").document(userId);
+          Map<String,String> users ={
+            "useruid" :userId,
+            "username":_name
+          };
+          documnentReference.setData(users).whenComplete((){
+            print("$userId has added");
+          });
 
         }
         setState(() {
@@ -52,6 +64,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
 
         if (userId.length > 0 && userId != null && _isLoginForm) {
           widget.loginCallback();
+          print(userId);
         }
       } catch (e) {
         print('Error: $e');
@@ -122,8 +135,9 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
               shrinkWrap: true,
               children: <Widget>[
                 SizedBox(
-                  height: 200.0,
+                  height: 100.0,
                 ),
+                showName(),
                 showEmailInput(),
                 showPasswordInput(),
                 showPrimaryButton(),
@@ -194,7 +208,34 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
       ),
     );
   }
-
+  Widget showName() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0.0, 100.0, 0.0, 0.0),
+      child: new TextFormField(
+        maxLines: 1,
+        keyboardType: TextInputType.text,
+        autofocus: false,
+        decoration: new InputDecoration(
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            border: new UnderlineInputBorder(
+              borderSide: new BorderSide(color: Colors.teal),
+            ),
+            hintText: 'İsim',
+            hintStyle: TextStyle(fontSize: 20.0, color: Colors.white),
+            icon: new Icon(
+              Icons.account_circle,
+              color: Colors.white,
+            )),
+        validator: (value) => value.isEmpty ? 'İsim Boş Olamaz' : null,
+        onSaved: (value) => _name = value.trim(),
+      ),
+    );
+  }
   Widget showPasswordInput() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),

@@ -1,16 +1,22 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_demo/services/authentication.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_login_demo/services/Todo.dart';
+
+
 
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.auth, this.userId, this.logoutCallback})
+  HomePage({Key key, this.auth, this.userId, this.logoutCallback,this.task})
       : super(key: key);
 
   final BaseAuth auth;
   final VoidCallback logoutCallback;
   final String userId;
+  String task;
+
 
   @override
   State<StatefulWidget> createState() => new _HomePageState();
@@ -25,29 +31,21 @@ class _HomePageState extends State<HomePage>   with SingleTickerProviderStateMix
       print(e);
     }
   }
-  String input ="";
+  String deger = "";
 
-  createTodos(){
-      DocumentReference documentReference =
-          Firestore.instance.collection("MyTodos").document(input);
-      Map<String,String> todos ={
-          "todoTitle" :input
-      };
-      documentReference.setData(todos).whenComplete((){
-          print("$input created");
-      });
+  final formKey =GlobalKey<FormState>();
 
-  }
+  var selecteduser;
 
-  deleteTodos(item){
-    DocumentReference documentReference =
-    Firestore.instance.collection("MyTodos").document(item);
+  @override
 
-    documentReference.delete().whenComplete((){
-      print("$input deleted");
-    });
+  void setState(fn) {
+    // TODO: implement setState
+    HomePage().task=deger;
+    super.setState(fn);
 
   }
+
   @override
   Widget build(BuildContext context) {
 
@@ -63,20 +61,25 @@ class _HomePageState extends State<HomePage>   with SingleTickerProviderStateMix
 
         ],
       ),
-      body: StreamBuilder(
+      body:StreamBuilder<QuerySnapshot>(
         stream:  Firestore.instance.collection("MyTodos").snapshots(),
+
         builder: (context,snapshots){
-            if (!snapshots.hasData){
-              return Center(child:CircularProgressIndicator() ,);
-            }
-            else{
-              return ListView.builder(
-                  itemCount: snapshots.data.documents.length,
-                  itemBuilder: (context,index){
-                    DocumentSnapshot documentsnapshot = snapshots.data.documents[index];
+
+          if (!snapshots.hasData){
+
+            return Center(child:CircularProgressIndicator() ,);
+          }
+          else{
+            return ListView.builder(
+                itemCount: snapshots.data.documents.length,
+                itemBuilder: (context,index){
+                  DocumentSnapshot documentsnapshot = snapshots.data.documents[index];
+
+                  if(widget.userId == documentsnapshot["Who"]) {
                     return Dismissible(
                       onDismissed: (direction){
-                        deleteTodos(documentsnapshot["todoTitle"]);
+                        Todo().deleteTodos(documentsnapshot["todoTitle"]);
                       },
                       key: Key(documentsnapshot["todoTitle"]),
                       child: Card(
@@ -84,43 +87,150 @@ class _HomePageState extends State<HomePage>   with SingleTickerProviderStateMix
                         margin: EdgeInsets.all(5),
 
                         child: ListTile(
+
                           contentPadding: EdgeInsets.all(10),
                           title: Text(documentsnapshot["todoTitle"],style: TextStyle(color: Colors.black),),
+                          subtitle: Text(documentsnapshot["Who"],style: TextStyle(color: Colors.black),),
                           trailing: IconButton(icon: Icon(Icons.delete,color: Colors.red,),onPressed: (){
-                            deleteTodos(documentsnapshot["todoTitle"]);
+
+                            Todo().deleteTodos(documentsnapshot["todoTitle"]);
+
                           },),
                         ),
                       ),
                     );
                   }
-              );
-            }
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: (){
-          showDialog(context: context,builder: (BuildContext context){
-            return AlertDialog(
-              shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(8)),
-              title: Text("TODO Ekle",style: TextStyle(color: Colors.black),),
-              content: TextField(
-                onChanged: (String val){input=val;},
-                style: TextStyle(color: Colors.black),
-              ),
-              actions: <Widget>[
-                FlatButton(
-                  onPressed: (){
-                    createTodos();
-                      Navigator.of(context).pop();
-                  },
-                  child: Text("Ekle",style: TextStyle(color: Colors.black),),
-                )
-              ],
+                  else{
+                    return Text("Görevin Yok");
+                  }
+                }
             );
-          });
+          }
+
         },
       ),
+      floatingActionButton: Stack(
+        children: <Widget>[
+          Align(
+            alignment: Alignment.bottomRight,
+            child: FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: (){
+                showDialog(context: context,builder: (BuildContext context){
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(8)),
+                    title: Text("TODO Ekle",style: TextStyle(color: Colors.black),),
+                    content: TextField(
+                      onChanged: (String val){
+                        deger=val;
+                      },
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    actions: <Widget>[
+
+                      FlatButton(
+                        onPressed: (){
+                          Todo().createTodos(deger);
+                          Navigator.of(context).pop();
+                        },
+                        child: Text("Ekle",style: TextStyle(color: Colors.black),),
+                      ),
+                    ],
+                  );
+                });
+              },
+            ),
+          ),
+
+          Align(
+            alignment: Alignment.centerRight,
+
+            child: Container(
+              margin: EdgeInsets.only(top: 480.0),
+              child: FloatingActionButton(
+
+                child: Icon(Icons.new_releases),
+                onPressed: (){
+                  showDialog(context: context,builder: (BuildContext context){
+                    return AlertDialog(
+                      shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(8)),
+                      title: Text("Görev Ata",style: TextStyle(color: Colors.black),),
+                      content:Form(
+                        key:formKey,
+                        child: Column(
+                          children: <Widget>[
+
+                            StreamBuilder<QuerySnapshot>(
+                              stream:Firestore.instance.collection("users").snapshots(),
+                              builder: (context,snapshot){
+                                if(!snapshot.hasData){
+                                 return Text("Loading");
+                                }
+                                else{
+                                  List<DropdownMenuItem> users=[];
+                                  for(int i =0;i<snapshot.data.documents.length;i++){
+                                    DocumentSnapshot snap = snapshot.data.documents[i];
+                                    users.add(
+                                      DropdownMenuItem(
+                                        child: Text(
+                                            snap.documentID,
+                                          style: TextStyle(color: Colors.black,fontSize: 12.0),
+                                        ),
+                                        value: "${snap.documentID}",
+
+                                      )
+                                    );
+                                  }
+                                  return DropdownButton(
+                                    items: users,
+                                    onChanged : (a){
+                                      setState(() {
+                                        selecteduser=a;
+                                      });
+                                    },
+                                    hint: Text("Kişi Seç",style: TextStyle(color: Colors.black),),
+                                    value: selecteduser,
+                                    isExpanded: false,
+
+                                  );
+
+                              }
+                              },
+                            ),
+
+
+                            TextField(
+                              onChanged: (String val){
+                                deger=val;
+                              },
+                              style: TextStyle(color: Colors.black),
+                              decoration: InputDecoration(
+                                  hintText: "Görev"
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      actions: <Widget>[
+                        FlatButton(
+                          onPressed: (){
+                            Todo().createTask(deger,selecteduser);
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("Görev Ver",style: TextStyle(color: Colors.black),),
+                        ),
+
+                      ],
+                    );
+                  });
+                },
+              ),
+            )
+          )
+
+        ],
+      )
     );
   }
 }

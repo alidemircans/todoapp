@@ -1,4 +1,4 @@
-#Fri Jun 19 11:59:13 EET 2020
+#Fri Jun 19 15:54:51 EET 2020
 base.0=C\:\\Users\\us\\Desktop\\Ali\\build\\app\\intermediates\\transforms\\r8\\release\\0\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

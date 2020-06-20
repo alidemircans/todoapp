@@ -4,7 +4,66 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c304e8f-8b51-4d03-af7a-d0fd71e71afd" name="Default" comment="" />
+    <list default="true" id="9c304e8f-8b51-4d03-af7a-d0fd71e71afd" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/services/Todo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/arm64-v8a/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/arm64-v8a/app.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/armeabi-v7a/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/armeabi-v7a/app.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/kernel_snapshot.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/x86_64/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/dd3a1b264e0d689f054a9732c1ce5aff/x86_64/app.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/release/arm64-v8a/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/release/arm64-v8a/app.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/release/armeabi-v7a/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/release/armeabi-v7a/app.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/release/flutter_build.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/release/flutter_build.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/release/libs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/release/libs.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/release/x86_64/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/release/x86_64/app.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageRelease/tmp/release/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageRelease/tmp/release/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/release-mergeJavaRes/zip-cache/T15k+QT_IlmFKhJXQ9VaYMzkFAk=" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/release-mergeJavaRes/zip-cache/T15k+QT_IlmFKhJXQ9VaYMzkFAk=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/release-mergeNativeLibs/zip-cache/T15k+QT_IlmFKhJXQ9VaYMzkFAk=" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/release-mergeNativeLibs/zip-cache/T15k+QT_IlmFKhJXQ9VaYMzkFAk=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_java_res/release/out.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_java_res/release/out.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_native_libs/release/out/lib/arm64-v8a/libapp.so" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_native_libs/release/out/lib/arm64-v8a/libapp.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_native_libs/release/out/lib/armeabi-v7a/libapp.so" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_native_libs/release/out/lib/armeabi-v7a/libapp.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_native_libs/release/out/lib/x86_64/libapp.so" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_native_libs/release/out/lib/x86_64/libapp.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/stripped_native_libs/release/out/lib/arm64-v8a/libapp.so" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/stripped_native_libs/release/out/lib/arm64-v8a/libapp.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/stripped_native_libs/release/out/lib/armeabi-v7a/libapp.so" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/stripped_native_libs/release/out/lib/armeabi-v7a/libapp.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/stripped_native_libs/release/out/lib/x86_64/libapp.so" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/stripped_native_libs/release/out/lib/x86_64/libapp.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/app.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/app.apk.sha1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/release/app-release.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/release/app-release.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/reports/lint-results-release-fatal.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/reports/lint-results-release-fatal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/cloud_firestore/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/cloud_firestore/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/cloud_firestore/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/cloud_firestore/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/cloud_firestore/intermediates/incremental/packageReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/cloud_firestore/intermediates/incremental/packageReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/cloud_firestore_web/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/cloud_firestore_web/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/cloud_firestore_web/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/cloud_firestore_web/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/cloud_firestore_web/intermediates/incremental/packageReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/cloud_firestore_web/intermediates/incremental/packageReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_auth/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_auth/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_auth/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_auth/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_auth/intermediates/incremental/packageReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_auth/intermediates/incremental/packageReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_core/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_core/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_core/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_core/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_core/intermediates/incremental/packageReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_core/intermediates/incremental/packageReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_core_web/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_core_web/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_core_web/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_core_web/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_core_web/intermediates/incremental/packageReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_core_web/intermediates/incremental/packageReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_database/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_database/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_database/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_database/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_database/intermediates/incremental/packageReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_database/intermediates/incremental/packageReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_messaging/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_messaging/intermediates/compile_only_not_namespaced_r_class_jar/release/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_messaging/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_messaging/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/firebase_messaging/intermediates/incremental/packageReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/firebase_messaging/intermediates/incremental/packageReleaseResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/login_signup_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login_signup_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/authentication.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/authentication.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +78,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1bU4iy9UH4du8xFpTREBr7LNc8e" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
@@ -98,6 +159,19 @@
       <updated>1535124956847</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

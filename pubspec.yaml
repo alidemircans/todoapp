@@ -11,6 +11,8 @@ dependencies:
   firebase_messaging:
   carousel_slider: ^2.0.0
   cloud_firestore: ^0.13.5
+  provider:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
