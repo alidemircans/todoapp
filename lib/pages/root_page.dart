@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_demo/pages/login_signup_page.dart';
+import 'package:flutter_login_demo/pages/LoginPage.dart';
 import 'package:flutter_login_demo/services/authentication.dart';
 import 'package:flutter_login_demo/pages/home_page.dart';
 
@@ -70,7 +70,7 @@ class _RootPageState extends State<RootPage> {
         return buildWaitingScreen();
         break;
       case AuthStatus.NOT_LOGGED_IN:
-        return new LoginSignupPage(
+        return new LoginPage(
           auth: widget.auth,
           loginCallback: loginCallback,
         );

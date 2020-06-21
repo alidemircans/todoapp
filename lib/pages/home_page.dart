@@ -1,11 +1,9 @@
 
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_demo/services/authentication.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_login_demo/services/Todo.dart';
-
-
 
 
 class HomePage extends StatefulWidget {
@@ -23,6 +21,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage>   with SingleTickerProviderStateMixin{
+
+
   signOut() async {
     try { 
       await widget.auth.signOut();
@@ -36,16 +36,34 @@ class _HomePageState extends State<HomePage>   with SingleTickerProviderStateMix
   final formKey =GlobalKey<FormState>();
 
   var selecteduser;
-
+  var token;
   @override
 
   void setState(fn) {
-    // TODO: implement setState
     HomePage().task=deger;
     super.setState(fn);
-
   }
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
 
+@override
+  void initState() {
+  _firebaseMessaging.getToken().then((deviceToken){
+    token = deviceToken;
+  });
+  _firebaseMessaging.configure(
+    onMessage: (Map<String, dynamic> response) async {
+        print("onMessage: $response");
+    },
+    onLaunch: (Map<String, dynamic> response) async {
+      print("onLaunch: $response");
+    },
+    onResume: (Map<String, dynamic> response) async {
+      print("onResume: $response");
+    },
+  );
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -62,53 +80,51 @@ class _HomePageState extends State<HomePage>   with SingleTickerProviderStateMix
         ],
       ),
       body:StreamBuilder<QuerySnapshot>(
-        stream:  Firestore.instance.collection("MyTodos").snapshots(),
+            stream:  Firestore.instance.collection("Tasks").snapshots(),
 
-        builder: (context,snapshots){
+            builder: (context,snapshots){
 
-          if (!snapshots.hasData){
+              if (!snapshots.hasData){
 
-            return Center(child:CircularProgressIndicator() ,);
-          }
-          else{
-            return ListView.builder(
-                itemCount: snapshots.data.documents.length,
-                itemBuilder: (context,index){
-                  DocumentSnapshot documentsnapshot = snapshots.data.documents[index];
-
-                  if(widget.userId == documentsnapshot["Who"]) {
-                    return Dismissible(
-                      onDismissed: (direction){
-                        Todo().deleteTodos(documentsnapshot["todoTitle"]);
-                      },
-                      key: Key(documentsnapshot["todoTitle"]),
-                      child: Card(
-                        elevation: 4,
-                        margin: EdgeInsets.all(5),
-
-                        child: ListTile(
-
-                          contentPadding: EdgeInsets.all(10),
-                          title: Text(documentsnapshot["todoTitle"],style: TextStyle(color: Colors.black),),
-                          subtitle: Text(documentsnapshot["Who"],style: TextStyle(color: Colors.black),),
-                          trailing: IconButton(icon: Icon(Icons.delete,color: Colors.red,),onPressed: (){
-
+                return Center(child:CircularProgressIndicator() ,);
+              }
+              else{
+                return ListView.builder(
+                    itemCount: snapshots.data.documents.length,
+                    itemBuilder: (context,index){
+                      DocumentSnapshot documentsnapshot = snapshots.data.documents[index];
+                      if(widget.userId == documentsnapshot["Who"]) {
+                        return Dismissible(
+                          onDismissed: (direction){
                             Todo().deleteTodos(documentsnapshot["todoTitle"]);
+                          },
+                          key: Key(documentsnapshot["todoTitle"]),
+                          child: Card(
+                            elevation: 4,
+                            margin: EdgeInsets.all(5),
+                            child: ListTile(
+                              contentPadding: EdgeInsets.all(10),
+                              title: Text(documentsnapshot["todoTitle"],style: TextStyle(color: Colors.black),),
+                              subtitle: Text(documentsnapshot["Who"],style: TextStyle(color: Colors.black),),
+                              trailing: IconButton(icon: Icon(Icons.delete,color: Colors.red,),onPressed: (){
 
-                          },),
-                        ),
-                      ),
-                    );
-                  }
-                  else{
-                    return Text("Görevin Yok");
-                  }
-                }
-            );
-          }
+                                Todo().deleteTodos(documentsnapshot["todoTitle"]);
 
-        },
-      ),
+                              },),
+                            ),
+                          ),
+                        );
+                      }
+                      else{
+                        return Text("Görevin Yok");
+                      }
+                    }
+                );
+              }
+            },
+          ),
+
+
       floatingActionButton: Stack(
         children: <Widget>[
           Align(
@@ -130,7 +146,8 @@ class _HomePageState extends State<HomePage>   with SingleTickerProviderStateMix
 
                       FlatButton(
                         onPressed: (){
-                          Todo().createTodos(deger);
+                          Todo().createTodos(deger,selecteduser);
+
                           Navigator.of(context).pop();
                         },
                         child: Text("Ekle",style: TextStyle(color: Colors.black),),
@@ -215,7 +232,11 @@ class _HomePageState extends State<HomePage>   with SingleTickerProviderStateMix
                       actions: <Widget>[
                         FlatButton(
                           onPressed: (){
-                            Todo().createTask(deger,selecteduser);
+
+                            setState(() {
+                                print("Tokenn " + token);
+                                Todo().createTask(deger,selecteduser,token,selecteduser);
+                            });
                             Navigator.of(context).pop();
                           },
                           child: Text("Görev Ver",style: TextStyle(color: Colors.black),),
@@ -234,3 +255,4 @@ class _HomePageState extends State<HomePage>   with SingleTickerProviderStateMix
     );
   }
 }
+

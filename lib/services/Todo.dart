@@ -5,24 +5,26 @@ import 'package:flutter_login_demo/services/authentication.dart';
 
 
 class Todo{
-       createTodos(input){
+       createTodos(input,userid){
          DocumentReference documentReference =
          Firestore.instance.collection("MyTodos").document(input);
          Map<String,String> todos ={
            "todoTitle" :input,
-            "Who":"KENDİ GÖREVİM"
+            "Who":userid
 
          };
          documentReference.setData(todos).whenComplete((){
            print("created");
          });
       }
-       createTask(input,selecteduser){
+       createTask(input,selecteduser,token,userid){
          DocumentReference documentReference =
-         Firestore.instance.collection("MyTodos").document(input);
+         Firestore.instance.collection("Tasks").document(input);
          Map<String,String> todos ={
            "todoTitle" :input,
            "Who":selecteduser,
+           "Token":token,
+           "UserId" :userid
          };
          documentReference.setData(todos).whenComplete((){
            print("created");
